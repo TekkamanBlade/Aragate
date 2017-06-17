@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <!--Load the AJAX API-->
+
+    <script type="text/javascript" src="./Chart.js"></script>
+    <script type="text/javascript">
+    
+var ctx;
+var data;
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        console.log(1);
+
+        ctx = document.getElementById("myChart").getContext("2d");
+
+        data = {
+	labels : ["January","February","March","April","May","June","July"],
+	datasets : [
+		{
+            label: '',
+			backgroundColor:'rgba(41,128,185,1)',
+            borderColor:'rgba(255,255,255,1)',
+            borderWidth: 1,
+			data : [28,48,40,19,67,27,119]
+		}
+	]
+}
+        callback(data, ctx)
+    });
+    console.log(2);
+    //var vtx = $("#myChart").get(0).getContext("2d");
+
+    function callback(chartData, chart)
+    {
+        //new Chart(chart).Bar(chartData);
+
+        new Chart.Bar(chart, {
+    data: chartData//,
+    //options: options
+});
+    }
+    
+    </script>
+  </head>
+
+  <body>
+    <!--Div that will hold the pie chart-->
+    <canvas id="myChart" width="100%" height="100%"></canvas>
+  </body>
+</html>
